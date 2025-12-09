@@ -15,6 +15,8 @@ A realistic e-commerce database containing:
 * **Suppliers**
 * **Inventory**
 
+![ER Diagram](images/erd.png)
+
 ---
 
 # **1. CREATE DATABASE**
