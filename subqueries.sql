@@ -45,9 +45,9 @@ SELECT AVG(order_total) as avg_orders FROM (
     ) avg_orders;
 
 -- result:
-SELECT sp.order_id, sp.total_price
+SELECT sp.order_id, sp.order_total
 FROM (
-    SELECT order_id, SUM(price * quantity) AS total_price
+    SELECT order_id, SUM(price * quantity) AS order_total
     FROM order_items
     GROUP BY order_id
 ) sp
@@ -60,3 +60,11 @@ WHERE sp.total_price >
         GROUP BY order_id
     ) avg_orders
 );
+-- result: with CTE (Common Table Expression)
+WITH order_totals AS (
+    SELECT order_id, SUM(price * quantity) AS order_total
+    FROM order_items
+    GROUP BY order_id
+)
+SELECT order_id,order_total FROM order_totals
+WHERE order_total > (SELECT AVG(order_total) FROM order_totals);
