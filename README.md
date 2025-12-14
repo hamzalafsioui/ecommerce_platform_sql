@@ -242,6 +242,15 @@ INSERT INTO orders(customer_id, status)
 VALUES
 (3,'shipped'), (4,'pending'), (5,'delivered'), (6,'cancelled');
 
+INSERT INTO orders (customer_id, status)
+VALUES
+(1, 'delivered'),
+(1, 'pending'),
+(1, 'shipped'),
+(4, 'delivered'),
+(4, 'pending');
+
+
 INSERT INTO order_items(order_id, product_id, quantity, price)
 VALUES
 (3,3,1,900),
